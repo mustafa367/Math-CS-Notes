@@ -14,3 +14,7 @@
 (define (square x) (* x x))
 (disp (sum square 1 (lambda (x) (+ 1 x)) 4))
 
+(define (f n) (/ 1.0 (* n (+ 2 n))))
+(define (4+ x) (+ 4 x))
+(define pi (* 8 (sum f 1 4+ 100000)))
+(disp pi)
