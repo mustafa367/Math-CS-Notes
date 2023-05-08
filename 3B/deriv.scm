@@ -1,0 +1,43 @@
+(define (disp x) (display x) (display "\n"))
+
+(define (deriv expr var)
+  (cond ((constant? expr var) 0)
+	((samevar? expr var) 1)
+	((sum? expr)
+	 (makesum (deriv (a1 expr) var)
+		  (deriv (a2 expr) var)))
+	((product? expr)
+	 (makeproduct (deriv (m1 expr) (deriv (m2 expr) var))
+		      (deriv (m2 expr) (deriv (m1 expr) var))))))
+
+(define (atom? x) (not (list? x)))
+(define (constant? expr var)
+  (and (atom? expr)
+       (not (eq? expr var))))
+(define (samevar? expr var)
+  (and (atom? expr) 
+       (eq? expr var)))
+
+(define (sum? expr)
+  (and (not (atom? expr))
+       (eq? (car expr) '+)))
+(define (makesum a1 a2)
+  (list '+ a1 a2))
+(define a1 cadr)
+(define a2 caddr)
+
+(define (product? expr)
+  (and (not (atom? expr))
+       (eq? (car expr) '*)))
+(define (makeproduct m1 m2)
+  (list '* m1 m2))
+(define m1 cadr)
+(define m2 caddr)
+
+(define foo
+  '(+ (* a (* x x))
+      (+ (* b x)
+	 c)))
+
+(define foo '(* x x))
+(disp (deriv foo 'x))
