@@ -1,8 +1,8 @@
 (define (disp x) (display x) (display "\n"))
 
 (define (+c x y)
-  (makerectangular (+ (re x) (re y))
-		   (+ (im x) (im y))))
+  (makerectangular (+ (realpart x) (realpart y))
+		   (+ (imagpart x) (imagpart y))))
 (define (*c x y)
   (makepolar (+ (mag x) (mag y))
 		   (+ (ang x) (ang y))))
@@ -56,4 +56,5 @@
 (disp (imagpart D))
 (disp (mag D))
 (disp (ang D))
-
+(disp (+c D D))
+(disp (*c D D))
