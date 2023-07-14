@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1689301307 "/var/home/user/Documents/Code/Math-CS-Notes/Awodey-Category-Theory/Ch1-Categories/Ch1-Categories-Exercises.tex" "Ch1-Categories-Exercises.pdf" "Ch1-Categories-Exercises" 1689301308 0
+["pdflatex"] 1689302372 "/var/home/user/Documents/Code/Math-CS-Notes/Awodey-Category-Theory/Ch1-Categories/Ch1-Categories-Exercises.tex" "Ch1-Categories-Exercises.pdf" "Ch1-Categories-Exercises" 1689302373 0
   "/etc/texmf/web2c/texmf.cnf" 1689127250 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx1000.tfm" 1136768653 3584 2d666ecf6d466d8b007246bc2f94d9da ""
@@ -110,11 +110,11 @@
   "/usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb" 1689127265 136101 f533469f523533d38317ab5729d00c8a ""
   "/usr/share/texmf/fonts/type1/public/cm-super/sfrm1728.pfb" 1689127265 131438 3aa300b3e40e5c8ba7b4e5c6cebc5dd6 ""
   "/usr/share/texmf/web2c/texmf.cnf" 1681034085 39561 34c98e380bf7c7201ee6a7909aff625a ""
-  "/var/home/user/Documents/Code/Math-CS-Notes/Awodey-Category-Theory/Ch1-Categories/Ch1-Categories-Exercises.tex" 1689301306 2401 cd18004109e43e393eb1f716769c694b ""
+  "/var/home/user/Documents/Code/Math-CS-Notes/Awodey-Category-Theory/Ch1-Categories/Ch1-Categories-Exercises.tex" 1689302371 2577 253cb3633b45a87958df6b24c16012a9 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1689127287 4623455 fa0568a71dd9a288d6c226ee477506c6 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1689127424 7881308 402399d5840215a1623d7527f946254c ""
-  "Ch1-Categories-Exercises.aux" 1689301308 622 31cf9fdc4a36815d44e0a14d66d23914 "pdflatex"
-  "Ch1-Categories-Exercises.tex" 1689301306 2401 cd18004109e43e393eb1f716769c694b ""
+  "Ch1-Categories-Exercises.aux" 1689302373 622 31cf9fdc4a36815d44e0a14d66d23914 "pdflatex"
+  "Ch1-Categories-Exercises.tex" 1689302371 2577 253cb3633b45a87958df6b24c16012a9 ""
   (generated)
   "Ch1-Categories-Exercises.aux"
   "Ch1-Categories-Exercises.log"
