@@ -1,0 +1,54 @@
+\documentclass{article} % This begins the document
+
+
+\usepackage[T1]{fontenc} % Fixes some symbols outside of math mode
+\usepackage{amsmath, amssymb, amsthm} % Adds some mathematical symbols
+\usepackage{enumerate} % Allows parts to be labelled by letter
+\usepackage{graphicx} % Allows including images with \includegraphics
+\usepackage{fullpage} % Adjusts boundaries
+\usepackage{xcolor} % Allows \textcolor to change colors
+\usepackage{bookmark} % Creates an outline
+\usepackage{listings}
+\usepackage[Export]{adjustbox} % Allows images to align with enumeration on top with valign
+% Command for creating new problems
+% Each problem appears on its own page
+% You can use HomeworkSplitter.py to split the pdf for each problem
+\newcommand{\problem}[1]{\newpage\pdfbookmark[section]{#1}{#1}\section*{#1}} 
+
+
+% Some commands to make certain things easier
+\renewcommand{\emptyset}{\varnothing}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\set}[1]{\left\{#1\right\}}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\newcommand{\ceil}[1]{\left\lceil#1\right\rceil}
+\newcommand{\pair}[1]{\langle#1\rangle}
+
+
+\title{\textbf{1}\\Categories}
+\begin{document}
+\maketitle
+\begin{enumerate}
+	\item \begin{enumerate}
+        \item First we show the category is closed under composition.
+        \\Let $R:A \rightarrow B, S:B \rightarrow C$.
+        \\$S \circ R = 
+        \set{ \pair{a,c} \in A \times C : \exists b (\pair{a,b} \in R \:\&\: \pair{b,c} \in S)} \subseteq 
+        A \times C$
+        \\Thus $S \circ R$ is an arrow in the category \textbf{Rel}.
+        \\
+        \\ Next we verify that the left and right identities are valid.
+        \begin{align*}
+            1_B \circ R &= \set{ \pair{a,b_2} \in A \times B : \exists b_1 (\pair{a,b_1} \in R \:\&\: \pair{b_1,b_2} \in 1_B)}
+            \\&=\set{ \pair{a,b_2} \in A \times B : \exists b_1 (\pair{a,b_1} \in R \:\&\: b_1=b_2)}
+            \\&=\set{ \pair{a,b} \in A \times B : \exists b (\pair{a,b} \in R)}
+            \\&=R
+            \\S \circ 1_B &= \set{ \pair{b_2,c} \in B \times C : \exists b_1 (\pair{b_2,b_1} \in 1_B \:\&\: \pair{b_1,c} \in S)}
+            \\&=\set{ \pair{b_2,c} \in B \times C : \exists b_1 (b_2=b_1 \:\&\: \pair{b_1,c} \in S)}
+            \\&=\set{ \pair{b,c} \in B \times C : \exists b (\pair{b,c} \in S)}
+            \\&=S
+        \end{align*}
+        \item 
+    \end{enumerate}
+\end{enumerate}
+\end{document}
