@@ -28,16 +28,37 @@
 \title{\textbf{1}\\Categories}
 \begin{document}
 \maketitle
+
+\section*{Definitions}
+\begin{enumerate}
+    \item A \textit{category} consists of objects and arrows.
+    \\For each arrow $f$, there exists a domain $\text{dom}(f)$ and codomain $\text{cod}(f)$. 
+    \\If $A=\text{dom}(f)$ and $B=\text{cod}(f)$, we may write $f:A\rightarrow B$. 
+    \\If $f:A\rightarrow B$ and $g:B\rightarrow C$, then there is a composite arrow $g\circ f:A\rightarrow C$.
+    \\For each object $A$, there is an identity arrow $1_A:A\rightarrow A$.
+    \\Objects and arrows must satisfy the following two equations, assuming each is well-defined:
+    \begin{enumerate}
+        \item $h\circ (g\circ f)=(h\circ g)\circ f$ (Associativity)
+        \item $f\circ 1_A=f=1_B\circ f$ (Unit)
+    \end{enumerate}
+    \item Given categories \textbf{C} and \textbf{D}, a \textit{functor} $F:\textbf{C}\rightarrow\textbf{D}$ is a mapping of objects to objects and arrows to arrows such that:
+    \begin{enumerate}
+        \item $F(f:A\rightarrow B)=F(f):F(A)\rightarrow F(B)$
+        \item $F(1_A)=1_{F(A)}$
+        \item $F(g\circ f)=F(g)\circ F(f)$
+    \end{enumerate}
+\end{enumerate}
+
+\section*{Exercises}
 \begin{enumerate}
 	\item \begin{enumerate}
-        \item First we show the category is closed under composition.
-        \\Let $R:A \rightarrow B, S:B \rightarrow C$.
-        \\$S \circ R = 
-        \set{ \pair{a,c} \in A \times C : \exists b (\pair{a,b} \in R \:\&\: \pair{b,c} \in S)} \subseteq 
-        A \times C$
-        \\Thus $S \circ R$ is an arrow in the category \textbf{Rel}.
+        \item \textbf{Rel} has sets as objects and subsets of $A\times B$ as arrows $A\rightarrow B$. Such subsets are also called relations.
+        \\The identity arrow $1_A$ is the relation $\set{\pair{a,a}\in A\times A:a\in A}$.
+        \\The composite arrow of $R:A\rightarrow B$ and $S:B\rightarrow C$ is $\set{\pair{a,c}\in A\times C:\exists b(\pair{a,b}\in R\:\&\:\pair{b,c}\in S)}$.
         \\
-        \\ Next we verify that the left and right identities are valid.
+        \\First we note the category is closed under composition since the composite arrow is a relation from $A$ to $C$.
+        \\
+        \\Second we verify that Unit holds.
         \begin{align*}
             1_B \circ R &= \set{ \pair{a,b_2} \in A \times B : \exists b_1 (\pair{a,b_1} \in R \:\&\: \pair{b_1,b_2} \in 1_B)}
             \\&=\set{ \pair{a,b_2} \in A \times B : \exists b_1 (\pair{a,b_1} \in R \:\&\: b_1=b_2)}
@@ -48,7 +69,39 @@
             \\&=\set{ \pair{b,c} \in B \times C : \exists b (\pair{b,c} \in S)}
             \\&=S
         \end{align*}
-        \item Let $f: A \rightarrow B$ be an arrow of \textbf{Sets}. $G(f)$ is by definition a subset of the product of $A \times B$, and hence is an arrow $A \rightarrow B$ in \textbf{Rel}.
+        \\
+        \\Finally we verify that Associativity holds. Let $T:C\rightarrow D$.
+        \begin{align*}
+            \pair{a,d}\in T\circ (S\circ R) &\iff \exists c(\pair{a.c}\in S\circ R \:\&\: \pair{c,d}\in T)
+            \\&\iff \exists c(\exists b(\pair{a.b}\in R \:\&\: \pair{b,c}\in S) \:\&\: \pair{c,d}\in T)
+            \\&\iff \exists b(\pair{a.b}\in R \:\&\: \exists c(\pair{b,c}\in S \:\&\: \pair{c,d}\in T))
+            \\&\iff \exists b(\pair{a.b}\in R \:\&\: \pair{b,d}\in T\circ S)
+            \\&\iff \pair{a,d}\in (T\circ S)\circ R
+            %(T\circ S)\circ R&=\set{\pair{a,d}\in A\times D:\exists b,c(\pair{a,b}\in R\:\&\: \pair{b,c}\in S\:\&\: \pair{c,d}\in T)}
+        \end{align*}
+        \item $G:\textbf{Sets}\rightarrow\textbf{Rel}$ is a mapping defined by taking objects to themselves and arrows in \textbf{Sets} as functions to its graph in \textbf{Rel}, that is for a function $f: A\times B$ in $\textbf{Sets}$
+        \\$G(f)=\set{\pair{a,f(a)}\in A\times B:a\in A}$
+        \\
+        \\It immediate that $G$ takes objects in $\textbf{Sets}$ to objects in $\textbf{Rel}$.
+        \\Let $f: A \rightarrow B$ be an arrow of \textbf{Sets}. $G(f)$ is by definition a subset of the product of $A \times B$, and hence is an arrow $A \rightarrow B$ in \textbf{Rel}.
+        \\
+        \\First, we show $G$ preserves domains and codomains.
+        \begin{align*}
+            G(f: A\rightarrow B)&=\set{\pair{a,f(a)}\in A\times B:a\in A}
+            \\&\subseteq A\times B
+        \end{align*}
+        \\Second, we show $G$ preserves identities.
+        \begin{align*}
+            G(1_A)&=\set{\pair{a,1_A(a)}\in A\times A:a\in A}
+            \\&=\set{\pair{a,a}\in A\times A:a\in A}
+        \end{align*}
+        \\Third, we show $G$ preserves compostions. Let $f:A\rightarrow B,g:B\rightarrow C$.
+        \begin{align*}
+            G(g\circ f)&=\set{\pair{a,g\circ f(a)}\in A\times C:a\in A}
+            \\&=\set{\pair{a,c}\in A\times C:\exists b(f(a)=b \:\&\: g(b)=c)}
+            \\&=\set{\pair{a,c}\in A\times C:\exists b(\pair{a,b}\in G(f) \:\&\: \pair{b,c}\in G(g))}
+            \\&=G(f)\circ G(g)
+        \end{align*}
     \end{enumerate}
 \end{enumerate}
 \end{document}
